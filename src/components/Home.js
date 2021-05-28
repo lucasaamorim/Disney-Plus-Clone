@@ -1,5 +1,6 @@
 import React from "react";
 import ImgSlider from './ImgSlider'
+import Viewers from './Viewers'
 import styled from "styled-components"
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
   <div>
     <Container >
         <ImgSlider />
+        <Viewers/>
     </Container>
   </div>
   );
