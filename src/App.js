@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Header from "./components/Header";
 import Home from "./components/Home"
 import Detail from "./components/Detail"
+import Login from "./components/Login"
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,10 @@ const App = () => {
         
         <Switch>
           
+          <Route path="/login">
+            <Login/>
+          </Route>
+
           <Route path="/detail">
             <Detail />
           </Route>
