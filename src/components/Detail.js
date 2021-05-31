@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
+import { useParams } from 'react-router-dom'
+import { selectMovies } from "../features/movie/movieSlice"
+import { useSelector } from 'react-redux'
 
 const Detail = () => {
+
+    const movies = useSelector(selectMovies)
+    const id = useParams();
+    const current_movie = movies.find(film => film.id === id.id)
+
     return (
         <Container>
            <Background>
-               <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg" />
+               <img src={current_movie.backgroundImg} />
            </Background>
            <ImageTitle>
-               <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78"/>
+               <img src={current_movie.titleImg}/>
            </ImageTitle>
            <Controls>
                <PlayButton>
@@ -27,9 +35,9 @@ const Detail = () => {
                 </GroupWatchButton>
            </Controls>
            <SubTitle>
-                Lorem Ipsum
+                {current_movie.subTitle}
                <Description>
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nunc nisi, scelerisque sed posuere quis, ultrices a massa. Etiam aliquam dui quis erat consequat, tempus dignissim odio aliquet. Vivamus rutrum quis nunc sed hendrerit. Etiam ac nisl eget erat lobortis posuere. Ut sit amet ultrices dui.
+                {current_movie.description}
                </Description>
            </SubTitle>
         </Container>

@@ -8,8 +8,7 @@ import Login from "./components/Login"
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom"
 
 const App = () => {
@@ -24,7 +23,7 @@ const App = () => {
             <Login/>
           </Route>
 
-          <Route path="/detail">
+          <Route path="/detail/:id">
             <Detail />
           </Route>
 
